@@ -1,3 +1,5 @@
 image/node/node_modules/
 image/node/package-lock.json
 image/node/package.json
+image/mysql/*
+!image/mysql/**/
