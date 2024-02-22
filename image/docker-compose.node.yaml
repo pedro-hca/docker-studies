@@ -4,7 +4,6 @@ services:
   app:
     build:
       context: node
-      # dockerfile: Dockerfile.prod
     container_name: app
     # entrypoint: dockerize -wait tcp://db:3306 -timeout 20s docker-entrypoint.sh
     networks:
@@ -30,19 +29,6 @@ services:
       - MYSQL_ROOT_PASSWORD=root
     networks:
       - node-network
-
-  nginx:  
-    build:
-      context: ./nginx
-      dockerfile: Dockerfile.nginx.prod
-    image: pedrohca/nginx-node
-    container_name: nginx
-    networks:
-      - node-network
-    ports:
-      - "8080:80"
-    depends_on:
-      - app
 
 networks:
   node-network:
